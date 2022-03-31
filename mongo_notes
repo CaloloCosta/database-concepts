@@ -1,0 +1,13 @@
+use DATABASE NAME
+db.collectionName.insert(json)
+db.collectionName.find()
+	sort({field: 1})
+	limit(num)
+	pretty() 
+	skip() 
+	{$in: ["list", "of", "values"]}	
+	
+-------
+db.student.find().sort({department: -1}).limit(3).pretty();
+db.student.find({department: {$in: ["IT","HR"]}}).pretty();
+db.student.find({department: {$in: ["IT","HR"]}},{name:1,department:1,_id:0}).pretty(); // DISPLAY ONLY CERTAIN FIELDS
