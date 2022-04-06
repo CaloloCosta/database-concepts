@@ -1,0 +1,16 @@
+# aggregate command
+db.student.aggregate([{$group:
+
+db.studend.aggregate([{$group:{_id:"$gender", total:{$sum:1}}}])
+db.student.aggregate([{$group:{_id:null, total_sum: {$sum: "$amount"}}}])
+
+$min $max $avg
+db.student.aggregate([{$group:{_id:null, total: {$sum: "$amount"}, min: {$min: "$amount"}, max: {$max: "$amount"}}}])
+
+project: changing values
+db.student.aggregate([{$project: {_id:0,name:1,amount:1, total:{$multiply: ["$amount", 1.05]}}}])
+
+$multiply, $add, $subtract,
+
+Regular expressions
+db.student.find({name: /na/i})
